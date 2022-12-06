@@ -1,13 +1,23 @@
 import * as React from 'react';
 import Table from './Table'
+import {listCargos} from './usuarios'
+
 function App() {
   return (
-    <Table
-      id={1}
-      segundoNome="enzo"
-      primeironome="Leao"
-      idade={12}
-    />
+    <div>
+       
+        {typeof listCargos !== "undefined" && 
+        listCargos.map((value)=>{
+          return (<Table
+            id={value.id}
+            name={value.name}
+            sobrenome={value.sobrenome}
+            idade={value.idade}
+          />)
+        })}
+       
+        
+    </div>
   )
 }
 
